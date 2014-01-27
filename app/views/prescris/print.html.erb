@@ -1,3 +1,4 @@
+<div style="margin-top: 80px;">
 <%= content_for(:title, "桥村卫生所处方") %>
 <legend>桥村卫生所处方</legend>
 <ul>
@@ -26,9 +27,10 @@
     <% end %>
   </table>
   <% end %>
-        <ol class="span3">药品费用:<span class="text-info" style="margin-left:10px;"><%= @prescri.total_price %></ol>
+        <ol class="span3">药品费用:<span class="text-info" style="margin-left:10px;">&#65509;&nbsp;<%= @prescri.total_price %>&nbsp;元</ol>
         <ol class="span3">医生签名:</ol>
         <ol class="span3">发药医生:</ol>
         <ol class="span3">调配医生:</ol>
       </tr>
   </ul>
+</div>

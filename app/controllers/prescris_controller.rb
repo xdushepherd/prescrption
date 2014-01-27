@@ -66,6 +66,7 @@ class PrescrisController < ApplicationController
 
   def print
     @prescri = Prescri.find(params[:id])
+    render layout: "print"
   end
 
   private

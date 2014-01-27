@@ -51,8 +51,8 @@
 </p>
 <p>
   <strong>药品费用:</strong>
-  <%= @prescri.total_price %>
+  &#65509;&nbsp;<%= @prescri.total_price %>&nbsp;元
 </p>
 
 <%= link_to '修改处方', edit_prescri_path(@prescri),class: 'btn btn-success' %>
-<%= link_to '打印处方', print_prescri_path(@prescri),class: 'btn' %>
+<%= link_to '打印处方', print_prescri_path(@prescri),class: 'btn',target: :blank %>
