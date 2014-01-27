@@ -40,10 +40,10 @@
     </thead>
     <% @prescri.prescri_drugs.each do |p|%>
     <tr>
-      <td><%= Drug.find(p.drug_id).name%></td>
-      <td><%= Drug.find(p.drug_id).price%></td>
-      <td><%= p.amount%></td>
-      <td><%= total(Drug.find(p.drug_id).price,p.amount) %></td>
+      <td><%= Drug.find(p.drug_id).name rescue ""%></td>
+      <td><%= Drug.find(p.drug_id).price rescue ""%></td>
+      <td><%= p.amount rescue ""%></td>
+      <td><%= total(Drug.find(p.drug_id).price,p.amount) rescue ""%></td>
     </tr>
     <% end %>
   </table>

@@ -25,10 +25,10 @@ class PrescrisController < ApplicationController
   # POST /prescris.json
   def create
     @prescri = Prescri.new(prescri_params)
-    @prescri.prescri_drugs.new(drug_id: params[:prescri][:drug1],amount: params[:prescri][:amount1]).save
-    @prescri.prescri_drugs.new(drug_id: params[:prescri][:drug2],amount: params[:prescri][:amount2]).save
-    @prescri.prescri_drugs.new(drug_id: params[:prescri][:drug3],amount: params[:prescri][:amount3]).save
-    @prescri.prescri_drugs.new(drug_id: params[:prescri][:drug4],amount: params[:prescri][:amount4]).save
+    @prescri.prescri_drugs.new(drug_id: params[:prescri][:drug1],amount: params[:prescri][:amount1]).save unless params[:prescri][:drug1].blank? 
+    @prescri.prescri_drugs.new(drug_id: params[:prescri][:drug2],amount: params[:prescri][:amount2]).save unless params[:prescri][:drug2].blank?
+    @prescri.prescri_drugs.new(drug_id: params[:prescri][:drug3],amount: params[:prescri][:amount3]).save unless params[:prescri][:drug3].blank?
+    @prescri.prescri_drugs.new(drug_id: params[:prescri][:drug4],amount: params[:prescri][:amount4]).save unless params[:prescri][:drug5].blank?
     respond_to do |format|
       if @prescri.save
         format.html { redirect_to @prescri, notice: '新处方生成.' }
