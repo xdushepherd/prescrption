@@ -1,13 +1,11 @@
-<h1>Listing drugs</h1>
-
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Price</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>药品名称</th>
+      <th>药品价格</th>
+      <th>药品详情</th>
+      <th>修改药品信息</th>
+      <th>删除药品</th>
     </tr>
   </thead>
 
@@ -16,9 +14,9 @@
       <tr>
         <td><%= drug.name %></td>
         <td><%= drug.price %></td>
-        <td><%= link_to 'Show', drug %></td>
-        <td><%= link_to 'Edit', edit_drug_path(drug) %></td>
-        <td><%= link_to 'Destroy', drug, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '查看', drug %></td>
+        <td><%= link_to '修改', edit_drug_path(drug) %></td>
+        <td><%= link_to '删除', drug, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Drug', new_drug_path %>
+<%= link_to '录入新药品', new_drug_path,class: 'btn pull-right' %>
