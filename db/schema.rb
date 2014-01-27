@@ -11,11 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140127042919) do
+ActiveRecord::Schema.define(version: 20140127075449) do
 
   create_table "drugs", force: true do |t|
     t.string   "name"
     t.integer  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "prescri_id"
+  end
+
+  create_table "prescri_drugs", force: true do |t|
+    t.integer  "prescri_id"
+    t.integer  "drug_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -33,6 +41,7 @@ ActiveRecord::Schema.define(version: 20140127042919) do
     t.string   "total_price"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "drug_id"
   end
 
 end

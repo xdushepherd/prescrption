@@ -36,16 +36,34 @@
   </div>
   <legend>药品</legend>
   <table class="table">
-    <thead>
+    <thead> 
       <th>药品名称</th>
       <th>药品单价</th>
       <th>药品数量</th>
       <th>药品总价</th>      
     </thead>
     <tr>
+      <td><%= f.select :drug1,Drug.all.collect {|p| [ p.name, p.id ] }, { include_blank:true } %><td>
       <td><td>
+      <td><%= 1%><td>
       <td><td>
+    </tr>
+    <tr>
+      <td><%= f.select :drug2,Drug.all.collect {|p| [ p.name, p.id ] }, { include_blank:true } %><td>
       <td><td>
+      <td><%= 1%><td>
+      <td><td>
+    </tr>
+    <tr>
+      <td><%= f.select :drug3,Drug.all.collect {|p| [ p.name, p.id ] }, { include_blank:true } %><td>
+      <td><td>
+      <td><%= 1%><td>
+      <td><td>
+    </tr>
+    <tr>
+      <td><%= f.select :drug4,Drug.all.collect {|p| [ p.name, p.id ] }, { include_blank:true } %><td>
+      <td><td>
+      <td><%= 1%><td>
       <td><td>
     </tr>
   </table>

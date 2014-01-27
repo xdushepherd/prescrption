@@ -35,6 +35,7 @@ class PrescrisController < ApplicationController
         format.json { render json: @prescri.errors, status: :unprocessable_entity }
       end
     end
+    binding.pry
   end
 
   # PATCH/PUT /prescris/1
