@@ -1,0 +1,45 @@
+<h1>Listing prescris</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Patient name</th>
+      <th>Gender</th>
+      <th>Age</th>
+      <th>Departments</th>
+      <th>Diagnose</th>
+      <th>Doctor</th>
+      <th>Re doctor</th>
+      <th>Re re doctor</th>
+      <th>Total price</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @prescris.each do |prescri| %>
+      <tr>
+        <td><%= prescri.name %></td>
+        <td><%= prescri.patient_name %></td>
+        <td><%= prescri.gender %></td>
+        <td><%= prescri.age %></td>
+        <td><%= prescri.departments %></td>
+        <td><%= prescri.diagnose %></td>
+        <td><%= prescri.doctor %></td>
+        <td><%= prescri.re_doctor %></td>
+        <td><%= prescri.re_re_doctor %></td>
+        <td><%= prescri.total_price %></td>
+        <td><%= link_to 'Show', prescri %></td>
+        <td><%= link_to 'Edit', edit_prescri_path(prescri) %></td>
+        <td><%= link_to 'Destroy', prescri, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Prescri', new_prescri_path %>

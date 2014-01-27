@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @prescri.name %>
+</p>
+
+<p>
+  <strong>Patient name:</strong>
+  <%= @prescri.patient_name %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @prescri.gender %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @prescri.age %>
+</p>
+
+<p>
+  <strong>Departments:</strong>
+  <%= @prescri.departments %>
+</p>
+
+<p>
+  <strong>Diagnose:</strong>
+  <%= @prescri.diagnose %>
+</p>
+
+<p>
+  <strong>Doctor:</strong>
+  <%= @prescri.doctor %>
+</p>
+
+<p>
+  <strong>Re doctor:</strong>
+  <%= @prescri.re_doctor %>
+</p>
+
+<p>
+  <strong>Re re doctor:</strong>
+  <%= @prescri.re_re_doctor %>
+</p>
+
+<p>
+  <strong>Total price:</strong>
+  <%= @prescri.total_price %>
+</p>
+
+<%= link_to 'Edit', edit_prescri_path(@prescri) %> |
+<%= link_to 'Back', prescris_path %>

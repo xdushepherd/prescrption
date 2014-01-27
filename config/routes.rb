@@ -1,4 +1,6 @@
 Prescription::Application.routes.draw do
+  resources :prescris
+
   resources :drugs
 
   # You can have the root of your site routed with "root"

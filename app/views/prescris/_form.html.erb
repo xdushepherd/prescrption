@@ -1,0 +1,45 @@
+<%= form_for(@prescri) do |f| %>
+  <% if @prescri.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@prescri.errors.count, "error") %> prohibited this prescri from being saved:</h2>
+
+      <ul>
+      <% @prescri.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label "患者姓名:" %>
+    <%= f.text_field :patient_name %>
+  </div>
+  <div class="field">
+    <%= f.label "患者性别:" %>
+    <%= f.text_field :gender %>
+  </div>
+  <div class="field">
+    <%= f.label "患者年龄:" %>
+    <%= f.number_field :age %>
+  </div>
+  <div class="field">
+    <%= f.label "就诊科室:" %>
+    <%= f.text_field :departments %>
+  </div>
+  <div class="field">
+    <%= f.label "临床诊断:" %>
+    <%= f.text_field :diagnose %>
+  </div>
+  <div class="field">
+    <%= f.label "就诊时间:" %>
+    <%= f.text_field :created_at,value: @prescri.created_at || Time.now %>
+  </div>
+  <legend>药品</legend>
+  <div class="field">
+  <%= f.label "药品费用:" %>
+    <%= f.text_field :total_price %>
+  </div>
+  <div class="actions">
+    <%= f.submit "生成处方",class: 'btn' %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+module PrescrisHelper
+end
