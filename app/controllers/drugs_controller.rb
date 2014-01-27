@@ -21,6 +21,13 @@ class DrugsController < ApplicationController
   def edit
   end
 
+  def price
+    @drug = Drug.find(params[:id])
+    respond_to do |format|
+      format.json { render json: @drug.price}
+    end
+  end
+
   # POST /drugs
   # POST /drugs.json
   def create
@@ -28,7 +35,7 @@ class DrugsController < ApplicationController
 
     respond_to do |format|
       if @drug.save
-        format.html { redirect_to @drug, notice: 'Drug was successfully created.' }
+        format.html { redirect_to @drug, notice: '药品信息录入成功.' }
         format.json { render action: 'show', status: :created, location: @drug }
       else
         format.html { render action: 'new' }

@@ -25,17 +25,19 @@ class PrescrisController < ApplicationController
   # POST /prescris.json
   def create
     @prescri = Prescri.new(prescri_params)
-
+    @prescri.prescri_drugs.new(drug_id: params[:prescri][:drug1],amount: params[:prescri][:amount1]).save
+    @prescri.prescri_drugs.new(drug_id: params[:prescri][:drug2],amount: params[:prescri][:amount2]).save
+    @prescri.prescri_drugs.new(drug_id: params[:prescri][:drug3],amount: params[:prescri][:amount3]).save
+    @prescri.prescri_drugs.new(drug_id: params[:prescri][:drug4],amount: params[:prescri][:amount4]).save
     respond_to do |format|
       if @prescri.save
-        format.html { redirect_to @prescri, notice: 'Prescri was successfully created.' }
+        format.html { redirect_to @prescri, notice: '新处方生成.' }
         format.json { render action: 'show', status: :created, location: @prescri }
       else
         format.html { render action: 'new' }
         format.json { render json: @prescri.errors, status: :unprocessable_entity }
       end
     end
-    binding.pry
   end
 
   # PATCH/PUT /prescris/1
@@ -64,7 +66,6 @@ class PrescrisController < ApplicationController
 
   def print
     @prescri = Prescri.find(params[:id])
-    render layout: "print"
   end
 
   private
@@ -75,6 +76,6 @@ class PrescrisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def prescri_params
-      params.require(:prescri).permit(:name, :patient_name, :gender, :age, :departments, :diagnose, :doctor, :re_doctor, :re_re_doctor, :total_price)
+      params.require(:prescri).permit(:drug1,:drug2,:drug3,:drug4,:name, :patient_name, :gender, :age, :departments, :diagnose, :doctor, :re_doctor, :re_re_doctor, :total_price)
     end
 end

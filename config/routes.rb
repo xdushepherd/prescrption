@@ -5,6 +5,7 @@ Prescription::Application.routes.draw do
 
   resources :drugs
 
+  get 'price',to: "drugs#price"
   # You can have the root of your site routed with "root"
   root 'home#index'
 

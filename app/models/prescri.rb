@@ -1,17 +1,5 @@
 class Prescri < ActiveRecord::Base
-	has_many :drugs,through: :prescri_drugs
-  def drug1
-  end
-
-  def drug2
-  end
-
-  def drug3
-  end
-
-  def drug4
-  end
-
-  def drug5
-  end
+	attr_accessor :amount1 ,:amount2,:amount3,:amount4,:amount5
+	has_many :drugs,through: :prescri_drug
+	has_many :prescri_drugs
 end

@@ -1,19 +1,14 @@
-<h1>Listing prescris</h1>
+<% content_for(:title,'所有处方')%>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Patient name</th>
-      <th>Gender</th>
-      <th>Age</th>
-      <th>Departments</th>
-      <th>Diagnose</th>
-      <th>Doctor</th>
-      <th>Re doctor</th>
-      <th>Re re doctor</th>
-      <th>Total price</th>
-      <th></th>
+      <th>患者姓名</th>
+      <th>患者姓名</th>
+      <th>患者年龄</th>
+      <th>就诊部门</th>
+      <th>临床诊断</th>
+      <th>药品费用</th>
       <th></th>
       <th></th>
     </tr>
@@ -28,18 +23,12 @@
         <td><%= prescri.age %></td>
         <td><%= prescri.departments %></td>
         <td><%= prescri.diagnose %></td>
-        <td><%= prescri.doctor %></td>
-        <td><%= prescri.re_doctor %></td>
-        <td><%= prescri.re_re_doctor %></td>
         <td><%= prescri.total_price %></td>
-        <td><%= link_to 'Show', prescri %></td>
-        <td><%= link_to 'Edit', edit_prescri_path(prescri) %></td>
-        <td><%= link_to 'Destroy', prescri, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '处方详情', prescri,class: "btn btn-small" %></td>
+        <td><%= link_to '打印处方', print_prescri_path(prescri),class: "btn btn-small" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Prescri', new_prescri_path %>

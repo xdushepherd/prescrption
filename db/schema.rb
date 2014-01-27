@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140127075449) do
+ActiveRecord::Schema.define(version: 20140127135745) do
 
   create_table "drugs", force: true do |t|
     t.string   "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20140127075449) do
     t.integer  "drug_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "amount"
   end
 
   create_table "prescris", force: true do |t|
@@ -42,6 +43,12 @@ ActiveRecord::Schema.define(version: 20140127075449) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "drug_id"
+    t.integer  "drug1"
+    t.integer  "drug2"
+    t.integer  "drug3"
+    t.integer  "drug4"
+    t.integer  "drug5"
+    t.integer  "drug6"
   end
 
 end

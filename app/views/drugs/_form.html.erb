@@ -1,3 +1,4 @@
+<% content_for(:title,"药品信息录入")%>
 <%= form_for(@drug) do |f| %>
   <% if @drug.errors.any? %>
     <div id="error_explanation">
@@ -10,16 +11,16 @@
       </ul>
     </div>
   <% end %>
-
+  <legend>药品信息录入</legend>
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label "药品名称:" %>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :price %><br>
+    <%= f.label "药品价格:" %>
     <%= f.number_field :price %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "录入信息",class: "btn btn-success" %>
   </div>
 <% end %>

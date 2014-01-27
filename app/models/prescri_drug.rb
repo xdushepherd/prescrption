@@ -1,4 +1,4 @@
 class PrescriDrug < ActiveRecord::Base
-	belongs_to :drugs
-	belongs_to :prescris
+	belongs_to :drug
+	belongs_to :prescri
 end

@@ -1,12 +1,12 @@
 <p>
-  <strong>Name:</strong>
+  <strong>药品名称:</strong>
   <%= @drug.name %>
 </p>
 
 <p>
-  <strong>Price:</strong>
+  <strong>药品单价:</strong>
   <%= @drug.price %>
 </p>
 
-<%= link_to '修改', edit_drug_path(@drug),class: "btn-primary" %> |
-<%= link_to 'Back', drugs_path %>
+<%= link_to '修改', edit_drug_path(@drug),class: "btn btn-primary" %> |
+<%= link_to '所有药品', drugs_path,class: "btn btn-success" %>

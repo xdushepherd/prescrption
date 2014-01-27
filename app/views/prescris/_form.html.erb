@@ -16,7 +16,7 @@
   </div>
   <div class="field">
     <%= f.label "患者性别:" %>
-    <%= f.text_field :gender %>
+    <%= f.select :gender,['男','女'] %>
   </div>
   <div class="field">
     <%= f.label "患者年龄:" %>
@@ -43,28 +43,28 @@
       <th>药品总价</th>      
     </thead>
     <tr>
-      <td><%= f.select :drug1,Drug.all.collect {|p| [ p.name, p.id ] }, { include_blank:true } %><td>
-      <td><td>
-      <td><%= 1%><td>
-      <td><td>
+      <td><%= f.select :drug1,Drug.all.collect {|p| [ p.name, p.id ] }, { include_blank:true },{ class: 'chosen-select' } %></td>
+      <td id="drug1_price"></td>
+      <td><%= f.number_field :amount1%></td>
+      <td id="drug1_total_price"></td>
     </tr>
     <tr>
-      <td><%= f.select :drug2,Drug.all.collect {|p| [ p.name, p.id ] }, { include_blank:true } %><td>
-      <td><td>
-      <td><%= 1%><td>
-      <td><td>
+      <td><%= f.select :drug2,Drug.all.collect {|p| [ p.name, p.id ] }, { include_blank:true } %></td>
+      <td id="drug2_price"></td>
+      <td><%= f.number_field :amount2%></td>
+      <td id="drug2_total_price"></td>
     </tr>
     <tr>
-      <td><%= f.select :drug3,Drug.all.collect {|p| [ p.name, p.id ] }, { include_blank:true } %><td>
-      <td><td>
-      <td><%= 1%><td>
-      <td><td>
+      <td><%= f.select :drug3,Drug.all.collect {|p| [ p.name, p.id ] }, { include_blank:true } %></td>
+      <td id="drug3_price"></td>
+      <td><%= f.number_field :amount3%></td>
+      <td id="drug3_total_price"></td>
     </tr>
     <tr>
-      <td><%= f.select :drug4,Drug.all.collect {|p| [ p.name, p.id ] }, { include_blank:true } %><td>
-      <td><td>
-      <td><%= 1%><td>
-      <td><td>
+      <td><%= f.select :drug4,Drug.all.collect {|p| [ p.name, p.id ] }, { include_blank:true } %></td>
+      <td id="drug4_price"></td>
+      <td><%= f.number_field :amount4%></td>
+      <td id="drug4_total_price"></td>
     </tr>
   </table>
   <div class="field">

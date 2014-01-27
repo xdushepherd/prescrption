@@ -1,7 +1,4 @@
 <h3>桥村卫生所处方</h3>
-
-
-<legend><span class="text-info"><%= @prescri.patient_name%></span><small>的处方</small></legend>
 <p>
   <strong>患者姓名:</strong>
   <%= @prescri.patient_name %>
@@ -30,6 +27,27 @@
 <p>
   <strong>就诊时间:</strong>
   <%= @prescri.created_at %>
+</p>
+<p>
+  <% if @prescri.prescri_drugs.any? %>
+  <legend>药品</legend>
+  <table class="table">
+    <thead> 
+      <th>药品名称</th>
+      <th>药品单价</th>
+      <th>药品数量</th>
+      <th>药品总价</th>      
+    </thead>
+    <% @prescri.prescri_drugs.each do |p|%>
+    <tr>
+      <td><%= Drug.find(p.drug_id).name%></td>
+      <td><%= Drug.find(p.drug_id).price%></td>
+      <td><%= p.amount%></td>
+      <td><%= total(Drug.find(p.drug_id).price,p.amount) %></td>
+    </tr>
+    <% end %>
+  </table>
+  <% end %>
 </p>
 <p>
   <strong>药品费用:</strong>
