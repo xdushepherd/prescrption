@@ -7,7 +7,7 @@
         <ol class="span3">患者性别:<span class="text-info" style="margin-left:10px;"><%= @prescri.gender %></ol>
         <ol class="span3">就诊科室:<span class="text-info" style="margin-left:10px;"><%= @prescri.departments %></ol>
         <ol class="span3">临床诊断:<span class="text-info" style="margin-left:10px;"><%= @prescri.diagnose %></ol>
-        <ol class="span3">就诊时间:<span class="text-info" style="margin-left:10px;"><%=@prescri.created_at %></ol>
+        <ol class="span3">就诊时间:<span class="text-info" style="margin-left:10px;"><%=@prescri.created_at.strftime("%Y-%m-%d %H:%M:%S") %></ol>
   <% if @prescri.prescri_drugs.any?%>
   <legend>药品</legend>
   <table class="table">

@@ -49,8 +49,8 @@ jQuery ->
   	data = parseInt($('#drug4_price').text())*$(@).val()
   	$('#drug4_total_price').text(data)
   $('input[type="submit"]').mouseover ->
-    a = parseInt($('#drug1_total_price').text())
-  	b = parseInt($('#drug2_total_price').text())
-  	c = parseInt($('#drug3_total_price').text())
-  	d = parseInt($('#drug4_total_price').text())
-  	$("#prescri_total_price").val(a+b+c+d)
+  	a = $('#drug1_total_price').text()
+  	b = $('#drug2_total_price').text()
+  	c = $('#drug3_total_price').text()
+  	d = $('#drug4_total_price').text()
+  	$("#prescri_total_price").val(parseInt(a)+parseInt(b)+parseInt(c)+parseInt(d))
