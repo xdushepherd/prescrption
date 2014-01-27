@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @drug.name %>
@@ -10,5 +8,5 @@
   <%= @drug.price %>
 </p>
 
-<%= link_to 'Edit', edit_drug_path(@drug) %> |
+<%= link_to '修改', edit_drug_path(@drug),class: "btn-primary" %> |
 <%= link_to 'Back', drugs_path %>

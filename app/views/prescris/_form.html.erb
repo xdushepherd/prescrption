@@ -35,9 +35,23 @@
     <%= f.text_field :created_at,value: @prescri.created_at || Time.now %>
   </div>
   <legend>药品</legend>
+  <table class="table">
+    <thead>
+      <th>药品名称</th>
+      <th>药品单价</th>
+      <th>药品数量</th>
+      <th>药品总价</th>      
+    </thead>
+    <tr>
+      <td><td>
+      <td><td>
+      <td><td>
+      <td><td>
+    </tr>
+  </table>
   <div class="field">
   <%= f.label "药品费用:" %>
-    <%= f.text_field :total_price %>
+    <%= f.text_field :total_price,readonly: true %>
   </div>
   <div class="actions">
     <%= f.submit "生成处方",class: 'btn' %>

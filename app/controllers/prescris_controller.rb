@@ -61,6 +61,11 @@ class PrescrisController < ApplicationController
     end
   end
 
+  def print
+    @prescri = Prescri.find(params[:id])
+    render layout: "print"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_prescri

@@ -1,54 +1,40 @@
-<p id="notice"><%= notice %></p>
+<h3>桥村卫生所处方</h3>
 
-<p>
-  <strong>Name:</strong>
-  <%= @prescri.name %>
-</p>
 
+<legend><span class="text-info"><%= @prescri.patient_name%></span><small>的处方</small></legend>
 <p>
-  <strong>Patient name:</strong>
+  <strong>患者姓名:</strong>
   <%= @prescri.patient_name %>
 </p>
 
 <p>
-  <strong>Gender:</strong>
+  <strong>患者性别:</strong>
   <%= @prescri.gender %>
 </p>
 
 <p>
-  <strong>Age:</strong>
+  <strong>患者年龄:</strong>
   <%= @prescri.age %>
 </p>
 
 <p>
-  <strong>Departments:</strong>
+  <strong>就诊科室:</strong>
   <%= @prescri.departments %>
 </p>
 
 <p>
-  <strong>Diagnose:</strong>
+  <strong>临床诊断:</strong>
   <%= @prescri.diagnose %>
 </p>
 
 <p>
-  <strong>Doctor:</strong>
-  <%= @prescri.doctor %>
+  <strong>就诊时间:</strong>
+  <%= @prescri.created_at %>
 </p>
-
 <p>
-  <strong>Re doctor:</strong>
-  <%= @prescri.re_doctor %>
-</p>
-
-<p>
-  <strong>Re re doctor:</strong>
-  <%= @prescri.re_re_doctor %>
-</p>
-
-<p>
-  <strong>Total price:</strong>
+  <strong>药品费用:</strong>
   <%= @prescri.total_price %>
 </p>
 
-<%= link_to 'Edit', edit_prescri_path(@prescri) %> |
-<%= link_to 'Back', prescris_path %>
+<%= link_to '修改处方', edit_prescri_path(@prescri),class: 'btn btn-success' %>
+<%= link_to '打印处方', print_prescri_path(@prescri),class: 'btn' %>

@@ -1,5 +1,7 @@
 Prescription::Application.routes.draw do
-  resources :prescris
+  resources :prescris do
+    get 'print',on: :member
+  end
 
   resources :drugs
 
