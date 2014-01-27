@@ -1,6 +1,8 @@
 Prescription::Application.routes.draw do
+  resources :drugs
+
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'home#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
