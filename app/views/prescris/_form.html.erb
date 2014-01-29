@@ -40,32 +40,20 @@
       <th>药品名称</th>
       <th>药品单价</th>
       <th>药品数量</th>
-      <th>药品总价</th>      
+      <th>药品总价</th> 
+      <th>用法用量</th>
+      <th><input type="button" value="添加药物" id="AddDrug" class="btn btn-primary"></input></th>     
     </thead>
+    <%= f.fields_for :prescri_drugs do |pd|%>
     <tr>
-      <td><%= f.select :drug1,Drug.all.collect {|p| [ p.name, p.id ] }, { include_blank:true },{ class: 'chosen-select' } %></td>
+      <td><%= pd.select :drug_id,Drug.all.collect {|p| [ p.name, p.id ] }, { include_blank:true } %></td>
       <td id="drug1_price"></td>
-      <td><%= f.number_field :amount1%></td>
+      <td></td>
       <td id="drug1_total_price"></td>
+      <td id="drug1_total_price"></td>
+      <td><input type="button" value="删除药物" class="btn btn-danger DeleteDrug"></input></td>
     </tr>
-    <tr>
-      <td><%= f.select :drug2,Drug.all.collect {|p| [ p.name, p.id ] }, { include_blank:true } %></td>
-      <td id="drug2_price"></td>
-      <td><%= f.number_field :amount2%></td>
-      <td id="drug2_total_price"></td>
-    </tr>
-    <tr>
-      <td><%= f.select :drug3,Drug.all.collect {|p| [ p.name, p.id ] }, { include_blank:true } %></td>
-      <td id="drug3_price"></td>
-      <td><%= f.number_field :amount3%></td>
-      <td id="drug3_total_price"></td>
-    </tr>
-    <tr>
-      <td><%= f.select :drug4,Drug.all.collect {|p| [ p.name, p.id ] }, { include_blank:true } %></td>
-      <td id="drug4_price"></td>
-      <td><%= f.number_field :amount4%></td>
-      <td id="drug4_total_price"></td>
-    </tr>
+    <% end %>
   </table>
   <div class="field">
   <%= f.label "药品费用:" %>

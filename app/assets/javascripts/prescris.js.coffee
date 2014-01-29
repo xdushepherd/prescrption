@@ -3,10 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 jQuery ->
   total_price = 0
-  $('#prescri_drug1').select2({ width: 'resolve' })
-  $('#prescri_drug2').select2({ width: 'resolve' })
-  $('#prescri_drug3').select2({ width: 'resolve' })
-  $('#prescri_drug4').select2({ width: 'resolve' })
+  # $('select[name="drug[]"]').select2({ width: 'resolve' })
   $('#prescri_drug1').change -> 
     $.ajax
       type: "GET"
@@ -48,9 +45,7 @@ jQuery ->
   $('#prescri_amount4').change ->
   	data = parseInt($('#drug4_price').text())*$(@).val()
   	$('#drug4_total_price').text(data)
-  $('input[type="submit"]').mouseover ->
-  	a = $('#drug1_total_price').text()
-  	b = $('#drug2_total_price').text()
-  	c = $('#drug3_total_price').text()
-  	d = $('#drug4_total_price').text()
-  	$("#prescri_total_price").val(parseInt(a)+parseInt(b)+parseInt(c)+parseInt(d))
+  $('#AddDrug').click ->
+    $('tbody').append($('tbody tr:first-child').clone(true))
+  $(".DeleteDrug").click ->
+    $(@).closest('tr').remove()

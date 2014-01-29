@@ -1,5 +1,5 @@
 class Prescri < ActiveRecord::Base
-	attr_accessor :amount1 ,:amount2,:amount3,:amount4,:amount5
 	has_many :drugs,through: :prescri_drug
 	has_many :prescri_drugs
+	accepts_nested_attributes_for :prescri_drugs,:reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
 end
