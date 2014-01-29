@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
+  <div class="field" style="margin-left: 104px;">
     <%= f.label "患者姓名:" %>
     <%= f.text_field :patient_name %>
   </div>
@@ -22,7 +22,7 @@
     <%= f.label "患者年龄:" %>
     <%= f.number_field :age %>
   </div>
-  <div class="field">
+  <div class="field" style="margin-left: 104px;">
     <%= f.label "就诊科室:" %>
     <%= f.text_field :departments %>
   </div>
@@ -34,26 +34,21 @@
     <%= f.label "就诊时间:" %>
     <%= f.text_field :created_at,value: @prescri.created_at || Time.now.strftime("%Y-%m-%d %H:%M:%S") %>
   </div>
-  <legend>药品</legend>
+  <legend class="text-success">药品</legend>
   <table class="table">
     <thead> 
       <th>药品名称</th>
-      <th>药品单价</th>
       <th>药品数量</th>
-      <th>药品总价</th> 
       <th>用法用量</th>
-      <th><%= link_to_add_fields "添加药物", f, :prescri_drugs %></th>
-      <!-- <th><input type="button" value="" id="AddDrug" class="btn btn-primary"></input></th>      -->
+      <th><%= link_to_add_fields "添加药物", f, :prescri_drugs%></th>
     </thead>
+    <tbody>
     <%= f.fields_for :prescri_drugs do |prescri_drug|%>
       <%= render "prescri_drug", :f => prescri_drug %>
     <% end %>
+    </tbody>
   </table>
-  <div class="field">
-  <%= f.label "药品费用:" %>
-    <%= f.text_field :total_price,readonly: true %>
-  </div>
   <div class="actions">
-    <%= f.submit "生成处方",class: 'btn' %>
+    <%= f.submit "生成处方",class: 'btn btn-success' %>
   </div>
 <% end %>
