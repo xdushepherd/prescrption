@@ -75,6 +75,6 @@ class PrescrisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def prescri_params
-      params.require(:prescri).permit(:created_at,:name, :patient_name, :gender, :age, :departments, :diagnose,prescri_drugs_attributes: [:drug_name,:base_price,:amount,:use_method] )
+      params.require(:prescri).permit(:created_at,:name, :patient_name, :gender, :age, :departments, :diagnose,prescri_drugs_attributes: [:drug_id,:base_price,:amount,:use_method] )
     end
 end

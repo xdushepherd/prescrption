@@ -21,6 +21,8 @@ function remove_fields(link) {
         $(link).closest("tr").hide();
 }
 function add_fields(link, association, content) {
-  $(content).insertAfter('tbody tr:last-child');
+  new_id = new Date().getTime();
+  regexp = new RegExp("new_" + association, "g");
+  $(content.replace(regexp, new_id)).insertAfter('tbody tr:last-child');
   $('select').not('select[name="prescri[gender]"]').select2({ width: 'resolve' })
 }
