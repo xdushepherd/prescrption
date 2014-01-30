@@ -15,9 +15,7 @@ class PrescrisController < ApplicationController
   # GET /prescris/new
   def new
     @prescri = Prescri.new
-    3.times do
-       prescri_drug = @prescri.prescri_drugs.build
-    end
+    @prescri.prescri_drugs.build
   end
 
   # GET /prescris/1/edit
@@ -28,6 +26,7 @@ class PrescrisController < ApplicationController
   # POST /prescris.json
   def create
     @prescri = Prescri.new(prescri_params)
+    binding.pry
     respond_to do |format|
       if @prescri.save
         format.html { redirect_to @prescri, notice: '新处方生成.' }
@@ -76,6 +75,6 @@ class PrescrisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def prescri_params
-      params.require(:prescri).permit(:drug1,:drug2,:drug3,:drug4,:name, :patient_name, :gender, :age, :departments, :diagnose, :doctor, :re_doctor, :re_re_doctor, :total_price)
+      params.require(:prescri).permit(:created_at,:name, :patient_name, :gender, :age, :departments, :diagnose,prescri_drugs_attributes: [:drug_name,:base_price,:amount,:use_method] )
     end
 end

@@ -1,9 +1,9 @@
 <tr>
-  <td><%= f.select :drug_id,Drug.all.collect {|p| [ p.name, p.id ] }, { include_blank:true } %></td>
-  <td><%= f.hidden_field :base_price,readonly: true %>
-  	  <%= f.number_field :amount%>
-  	  <%= f.hidden_field :total_price,readonly: true%>
+  <td>
+  	  <%= f.select :drug_id,Drug.all.collect {|p| [ p.name, p.id ] }, { include_blank:true } %>
+      <%= f.hidden_field :base_price%>
   </td>
+  <td><%= f.number_field :amount%></td>
   <td><%= f.text_field :use_method%></td>
   <td><%= f.hidden_field :_destroy %>
   <%= link_to_function "删除药物", "remove_fields(this)",class: "btn btn-danger" %>

@@ -36,14 +36,16 @@
       <th>药品名称</th>
       <th>药品单价</th>
       <th>药品数量</th>
-      <th>药品总价</th>      
+      <th>药品总价</th>
+      <th>用法用量</th>       
     </thead>
     <% @prescri.prescri_drugs.each do |p|%>
     <tr>
-      <td><%= Drug.find(p.drug_id).name rescue ""%></td>
-      <td><%= Drug.find(p.drug_id).price rescue ""%></td>
-      <td><%= p.amount rescue ""%></td>
-      <td><%= total(Drug.find(p.drug_id).price,p.amount) rescue ""%></td>
+      <td><%= p.drug_name%></td>
+      <td></td>
+      <td><%= p.amount %></td>
+      <td></td>
+      <td><%= p.use_method %></td>
     </tr>
     <% end %>
   </table>
