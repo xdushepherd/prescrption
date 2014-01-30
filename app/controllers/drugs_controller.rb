@@ -4,7 +4,8 @@ class DrugsController < ApplicationController
   # GET /drugs
   # GET /drugs.json
   def index
-    @drugs = Drug.all
+    @q = Drug.search(params[:q])
+    @drugs = @q.result(distinct: true).page(params[:page]).per(7)
   end
 
   # GET /drugs/1

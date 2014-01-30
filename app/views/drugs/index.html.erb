@@ -1,3 +1,11 @@
+<% content_for(:title,'所有处方')%>
+<div class="text-center">
+<%= search_form_for @q do |f| %>
+  <%= f.label :name_cont,"药品名称:"%>
+  <%= f.text_field :name_cont %>
+  <%= f.submit "查询",style: "margin-left: 30px;margin-top: -12px;",class: "btn btn-primary"%>
+<% end %>
+</div>
 <table class="table">
   <thead>
     <tr>
@@ -14,14 +22,14 @@
       <tr>
         <td><%= drug.name %></td>
         <td><%= drug.price %></td>
-        <td><%= link_to '查看', drug %></td>
-        <td><%= link_to '修改', edit_drug_path(drug) %></td>
-        <td><%= link_to '删除', drug, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '查看', drug,class: "btn btn-info" %></td>
+        <td><%= link_to '修改', edit_drug_path(drug),class: "btn btn-primary" %></td>
+        <td><%= link_to '删除', drug, method: :delete,class: "btn btn-danger", data: { confirm: '确定要删除该药品吗?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+    <%= paginate @drugs %>
 <br>
 
 <%= link_to '录入新药品', new_drug_path,class: 'btn pull-right' %>

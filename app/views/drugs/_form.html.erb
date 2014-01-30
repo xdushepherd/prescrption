@@ -1,9 +1,8 @@
 <% content_for(:title,"药品信息录入")%>
+<div class="text-center">
 <%= form_for(@drug) do |f| %>
   <% if @drug.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@drug.errors.count, "error") %> prohibited this drug from being saved:</h2>
-
+    <div>
       <ul>
       <% @drug.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -12,15 +11,18 @@
     </div>
   <% end %>
   <legend>药品信息录入</legend>
-  <div class="field">
+  <div class="text-center">
+  <div class="field offset2">
     <%= f.label "药品名称:" %>
     <%= f.text_field :name %>
   </div>
   <div class="field">
     <%= f.label "药品价格:" %>
-    <%= f.number_field :price %>
+    <%= f.number_field :price %>&nbsp;&nbsp;&nbsp;元
   </div>
   <div class="actions">
     <%= f.submit "录入信息",class: "btn btn-success" %>
   </div>
+</div>
 <% end %>
+</div>

@@ -4,7 +4,8 @@ class PrescrisController < ApplicationController
   # GET /prescris
   # GET /prescris.json
   def index
-    @prescris = Prescri.all
+    @q = Prescri.search(params[:q])
+    @prescris = @q.result(distinct: true).order('created_at DESC').page(params[:page]).per(7)
   end
 
   # GET /prescris/1
