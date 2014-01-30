@@ -42,9 +42,9 @@
     <% @prescri.prescri_drugs.each do |p|%>
     <tr>
       <td><%= p.drug_name%></td>
-      <td></td>
+      <td><%= p.base_price%></td>
       <td><%= p.amount %></td>
-      <td></td>
+      <td><%= p.total_price%></td>
       <td><%= p.use_method %></td>
     </tr>
     <% end %>
@@ -53,7 +53,7 @@
 </p>
 <p>
   <strong>药品费用:</strong>
-  &#65509;&nbsp;<%= @prescri.total_price %>&nbsp;元
+  &#65509;&nbsp;<%= @prescri.prescri_drugs.sum("total_price") %>&nbsp;元
 </p>
 
 <%= link_to '修改处方', edit_prescri_path(@prescri),class: 'btn btn-success' %>

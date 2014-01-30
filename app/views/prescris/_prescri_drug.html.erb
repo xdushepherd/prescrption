@@ -1,7 +1,6 @@
 <tr>
   <td>
   	  <%= f.select :drug_id,Drug.all.collect {|p| [ p.name, p.id ] }, { include_blank:true } %>
-      <%= f.hidden_field :base_price%>
   </td>
   <td><%= f.number_field :amount%></td>
   <td><%= f.text_field :use_method%></td>
