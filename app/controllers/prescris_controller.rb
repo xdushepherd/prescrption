@@ -67,6 +67,16 @@ class PrescrisController < ApplicationController
     render layout: "print"
   end
 
+  def new_one
+    @prescri = Prescri.find(params[:id])
+    binding.pry
+    @prescri.delete_if {|key,value| key = :created_at}
+    @prescri.delete_if {|key,value| key = :updated_at}
+    @prescri.delete_if {|key,value| key = :id }
+    binding.pry
+    @new_prescri = Prescri.new
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_prescri

@@ -1,6 +1,7 @@
 Prescription::Application.routes.draw do
   resources :prescris do
     get 'print',on: :member
+    match 'new_one',on: :member,via: [:post,:get]
   end
 
   resources :drugs

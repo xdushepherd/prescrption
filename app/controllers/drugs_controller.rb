@@ -33,7 +33,6 @@ class DrugsController < ApplicationController
   # POST /drugs.json
   def create
     @drug = Drug.new(drug_params)
-
     respond_to do |format|
       if @drug.save
         format.html { redirect_to @drug, notice: '药品信息录入成功.' }

@@ -32,7 +32,7 @@
         <td><%= prescri.diagnose %></td>
         <td><%= prescri.prescri_drugs.sum('total_price') %></td>
         <td><%= link_to '处方详情', prescri,class: "btn btn-small btn-info" %></td>
-        <td><%= link_to '打印处方', print_prescri_path(prescri),class: "btn btn-small btn-success" %></td>
+        <td><%= link_to '打印处方', new_one_prescri_path(prescri),class: "btn btn-small btn-success" %></td>
       </tr>
     <% end %>
   </tbody>
