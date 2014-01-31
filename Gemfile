@@ -29,6 +29,8 @@ gem "ransack"
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
+gem 'seed-fu', github: 'mbleigh/seed-fu'
+gem 'roo'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
