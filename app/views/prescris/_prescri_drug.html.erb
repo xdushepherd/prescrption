@@ -2,7 +2,7 @@
   <td>
   	  <%= f.select :drug_id,Drug.all.collect {|p| [ p.name, p.id ] }, { include_blank:true } %>
   </td>
-  <td><%= f.number_field :amount%></td>
+  <td><%= f.number_field :amount %></td>
   <td><%= f.text_field :use_method%></td>
   <td><%= f.hidden_field :_destroy %>
   <%= link_to_function "删除药物", "remove_fields(this)",class: "btn btn-danger" %>

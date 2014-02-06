@@ -1,39 +1,48 @@
-<div style="margin-top: 80px;">
-<%= content_for(:title, "桥村卫生所处方") %>
-<legend>桥村卫生所处方</legend>
-<ul>
-        <ol class="span3">处方编号:<span class="text-info" style="margin-left:10px;"><%= @prescri.created_at.to_time.to_i %></ol>
-        <ol class="span3">患者姓名:<span class="text-info" style="margin-left:10px;"><%= @prescri.patient_name %></ol>
-        <ol class="span3">患者年龄:<span class="text-info" style="margin-left:10px;"><%= @prescri.age %></ol>
-        <ol class="span3">患者性别:<span class="text-info" style="margin-left:10px;"><%= @prescri.gender %></ol>
-        <ol class="span3">就诊科室:<span class="text-info" style="margin-left:10px;"><%= @prescri.departments %></ol>
-        <ol class="span3">临床诊断:<span class="text-info" style="margin-left:10px;"><%= @prescri.diagnose %></ol>
-        <ol class="span3">就诊时间:<span class="text-info" style="margin-left:10px;"><%=@prescri.created_at.strftime("%Y-%m-%d %H:%M:%S") %></ol>
-  <% if @prescri.prescri_drugs.any? %>
-  <legend>药品</legend>
+<h1 class="text-center">桥村卫生室</h1>
+
+<div class="prescri-info" style="margin-top: 30px;">
+        <div>
+        编号:<span class="text-info" style="margin-left:10px;"><%= @prescri.created_at.to_time.to_i %> </span></div>
+        <div style="margin-left:40px;">
+        姓名:<span class="text-info" style="margin-left:10px;"><%= @prescri.patient_name %> </span>
+        </div>
+        <div style="margin-left:40px;">
+        年龄:<span class="text-info" style="margin-left:10px;"><%= @prescri.age %> </span>
+        </div>
+        <div style="margin-left:40px;">
+        性别:<span class="text-info" style="margin-left:10px;"><%= @prescri.gender %> </span>
+        </div>
+        <div style="margin-left:40px;">
+        诊断:<span class="text-info" style="margin-left:10px;"><%= @prescri.diagnose %> </span>
+        </div>
+        <div style="margin-left:40px;">
+        就诊时间:<span class="text-info" style="margin-left:10px;"><%=@prescri.created_at.strftime("%Y-%m-%d %H:%M:%S") %> </span>        </div>
+</div>
+<% if @prescri.prescri_drugs.any? %>
+<div class="drug" style="margin-top: 80px;">
+  <div>R:</div>
   <table class="table">
     <thead> 
       <th>药品名称</th>
-      <th>药品单价</th>
+      <th>药品规格</th>
       <th>药品数量</th>
-      <th>药品总价</th>
       <th>用法用量</th>       
     </thead>
     <% @prescri.prescri_drugs.each do |p|%>
     <tr>
       <td><%= p.drug_name%></td>
-      <td><%= p.base_price%></td>
+      <td><%= p.specifications %></td>
       <td><%= p.amount %></td>
-      <td><%= p.total_price%></td>
       <td><%= p.use_method %></td>
     </tr>
     <% end %>
   </table>
   <% end %>
-        <ol class="span3">药品费用:<span class="text-info" style="margin-left:10px;">&#65509;&nbsp;<%= @prescri.prescri_drugs.sum("total_price") %>&nbsp;元</ol>
-        <ol class="span3">医生签名:</ol>
-        <ol class="span3">发药医生:</ol>
-        <ol class="span3">调配医生:</ol>
-      </tr>
-  </ul>
+        <div>医生签名:</div>
+        <div class="pull-right" style="margin-left:10px;">
+             药品费用:&#65509;&nbsp;<%= @prescri.prescri_drugs.sum("total_price") %>&nbsp;元
+        </div> 
 </div>
+<%= javascript_tag defer: 'defer' do -%>
+    window.onload = window.print()
+<% end -%>

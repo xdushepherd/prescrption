@@ -3,7 +3,7 @@
 <%= search_form_for @q do |f| %>
   <%= f.label :patient_name_cont,"患者姓名:"%>
   <%= f.text_field :patient_name_cont %>
-  <%= f.submit "查询",style: "margin-left: 30px;margin-top: -12px;",class: "btn btn-primary"  %>
+  <%= f.submit "查询",style: "margin-left: 30px;margin-top: -3px;",class: "btn btn-primary"  %>
 <% end %>
 </div>
 
@@ -12,12 +12,11 @@
     <tr>
       <th>处方编号</th>
       <th>患者姓名</th>
+      <th>患者性别</th>
       <th>患者年龄</th>
-      <th>就诊部门</th>
       <th>临床诊断</th>
       <th>药品费用</th>
-      <th></th>
-      <th></th>
+      <th>操作</th>
     </tr>
   </thead>
 
@@ -27,12 +26,13 @@
         <td><%= prescri.created_at.to_time.to_i%></td>
         <td><%= prescri.patient_name %></td>
         <td><%= prescri.gender %></td>
-        <td><%= prescri.age %></td>
-        <td><%= prescri.departments %></td>
+        <td><%= prescri.info %></td>
         <td><%= prescri.diagnose %></td>
         <td><%= prescri.prescri_drugs.sum('total_price') %></td>
-        <td><%= link_to '处方详情', prescri,class: "btn btn-small btn-info" %></td>
-        <td><%= link_to '打印处方', new_one_prescri_path(prescri),class: "btn btn-small btn-success" %></td>
+        <td>
+            <%= link_to '处方详情', prescri,class: "btn btn-small btn-info" %>
+            <%= link_to '复制处方', new_one_prescri_path(prescri),class: "btn btn-small btn-success",target: "blank" %>
+        </td>
       </tr>
     <% end %>
   </tbody>

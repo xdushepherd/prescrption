@@ -68,13 +68,17 @@ class PrescrisController < ApplicationController
   end
 
   def new_one
-    @prescri = Prescri.find(params[:id])
-    binding.pry
-    @prescri.delete_if {|key,value| key = :created_at}
-    @prescri.delete_if {|key,value| key = :updated_at}
-    @prescri.delete_if {|key,value| key = :id }
-    binding.pry
-    @new_prescri = Prescri.new
+    @prescri_record = Prescri.find(params[:id])
+    @prescri = Prescri.find(params[:id]).attributes
+    @prescri.delete_if {|key,value| key == "created_at"}
+    @prescri.delete_if {|key,value| key == "updated_at"}
+    @prescri.delete_if {|key,value| key == "id" }
+    @new_prescri = Prescri.new(@prescri)
+    @prescri_record.prescri_drugs.each do |prescri_drug|
+       @new_prescri.prescri_drugs.new(prescri_drug.attributes.delete_if{ |key,value| key == "id"}).save
+    end 
+    @new_prescri.save
+    redirect_to @new_prescri
   end
 
   private
@@ -85,6 +89,6 @@ class PrescrisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def prescri_params
-      params.require(:prescri).permit(:created_at,:name, :patient_name, :gender, :age, :departments, :diagnose,prescri_drugs_attributes: [:drug_id,:amount,:use_method] )
+      params.require(:prescri).permit(:created_at,:name, :patient_name, :gender, :info, :departments, :diagnose,prescri_drugs_attributes: [:drug_id,:amount,:_destroy,:use_method] )
     end
 end

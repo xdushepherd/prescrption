@@ -38,17 +38,19 @@
   </head>
   <body>
 
-    <div class="navbar navbar-top">
-      <div class="navbar-inner">
+  <div class="navbar navbar-default" role="navigation">
         <div class="container">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="/">桥村卫生所</a>
-          <div class="container nav-collapse">
-            <ul class="nav">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">桥村卫生所</a>
+          </div>
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
               <li><%= link_to "药品信息", drugs_path %></li>
               <li><%= link_to "写处方", new_prescri_path %></li>
               <li><%= link_to "抓药", prescris_path  %></li>
@@ -56,12 +58,9 @@
           </div><!--/.nav-collapse -->
         </div>
       </div>
-    </div>
-
     <div class="container">
         <div class="row">
           <div class="span12" style="margin-bottom:150px;">
-            <%= bootstrap_flash %>
             <%= yield %>
           </div>
         </div><!--/row-->

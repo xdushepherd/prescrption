@@ -3,7 +3,7 @@
 <%= search_form_for @q do |f| %>
   <%= f.label :name_cont,"药品名称:"%>
   <%= f.text_field :name_cont %>
-  <%= f.submit "查询",style: "margin-left: 30px;margin-top: -12px;",class: "btn btn-primary"%>
+  <%= f.submit "查询",style: "margin-left: 30px;margin-top: -3px;",class: "btn btn-primary"%>
 <% end %>
 </div>
 <table class="table">
@@ -29,7 +29,9 @@
     <% end %>
   </tbody>
 </table>
-    <%= paginate @drugs %>
+    <div class="text-center">
+      <%= paginate @drugs %>
+  </div>
 <br>
 
-<%= link_to '录入新药品', new_drug_path,class: 'btn pull-right' %>
+<%= link_to '录入新药品', new_drug_path,class: 'btn pull-right btn-success' %>

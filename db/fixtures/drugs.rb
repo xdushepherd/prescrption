@@ -8,6 +8,7 @@ s.default_sheet = s.sheets.first
   if price
     Drug.seed do |s|
       s.id    = line
+      s.specifications  = first_name
       s.name  = name
       s.price = price
     end

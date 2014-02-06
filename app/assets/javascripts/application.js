@@ -12,12 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
+//= require bootstrap
 //= require select2
 //= require turbolinks
 //= require_tree .
 function remove_fields(link) {
-        $(link).closest("input[type=hidden]").value = "1";
+        $(link).closest("input[type=hidden]").value = true;
         $(link).closest("tr").hide();
 }
 function add_fields(link, association, content) {
