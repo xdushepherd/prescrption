@@ -42,6 +42,7 @@ class PrescrisController < ApplicationController
   # PATCH/PUT /prescris/1.json
   def update
     respond_to do |format|
+      binding.pry
       if @prescri.update(prescri_params)
         format.html { redirect_to @prescri, notice: 'Prescri was successfully updated.' }
         format.json { head :no_content }
@@ -89,6 +90,8 @@ class PrescrisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def prescri_params
-      params.require(:prescri).permit(:created_at,:name, :patient_name, :gender, :info, :departments, :diagnose,prescri_drugs_attributes: [:drug_id,:amount,:_destroy,:use_method] )
+      params.require(:prescri).permit(:created_at,:name, :patient_name, 
+                                      :gender, :info, :departments, 
+                                      :diagnose,prescri_drugs_attributes: [:id,:drug_id,:amount,:_destroy,:use_method] )
     end
 end

@@ -1,8 +1,8 @@
 <% content_for(:title,'所有处方')%>
 <div class="text-center">
 <%= search_form_for @q do |f| %>
-  <%= f.label :patient_name_cont,"患者姓名:"%>
-  <%= f.text_field :patient_name_cont %>
+  <%= f.label :id_cont,"患者姓名:"%>
+  <%= f.text_field :id_cont %>
   <%= f.submit "查询",style: "margin-left: 30px;margin-top: -3px;",class: "btn btn-primary"  %>
 <% end %>
 </div>
@@ -23,15 +23,16 @@
   <tbody>
     <% @prescris.each do |prescri| %>
       <tr>
-        <td><%= prescri.created_at.to_time.to_i%></td>
+        <td><%= prescri.id.to_s.rjust(7, '0') %></td>
         <td><%= prescri.patient_name %></td>
         <td><%= prescri.gender %></td>
         <td><%= prescri.info %></td>
         <td><%= prescri.diagnose %></td>
         <td><%= prescri.prescri_drugs.sum('total_price') %></td>
         <td>
-            <%= link_to '处方详情', prescri,class: "btn btn-small btn-info" %>
+            <%= link_to '处方详情', prescri,class: "btn btn-small btn-success" %>
             <%= link_to '复制处方', new_one_prescri_path(prescri),class: "btn btn-small btn-success",target: "blank" %>
+            <%= link_to '打印处方', print_prescri_path(prescri),class: 'btn btn-default btn-success',target: :blank %>
         </td>
       </tr>
     <% end %>

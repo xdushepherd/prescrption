@@ -1,27 +1,29 @@
-<h1 class="text-center">桥村卫生室</h1>
+<h3 class="text-center">桥村卫生室</h3>
 
 <div class="prescri-info" style="margin-top: 30px;">
-        <div>
-        编号:<span class="text-info" style="margin-left:10px;"><%= @prescri.created_at.to_time.to_i %> </span></div>
-        <div style="margin-left:40px;">
+        <div  style="margin-left:124px;">
+        编号:<span class="text-info" style="margin-left:10px;"><%= @prescri.id.to_s.rjust(7, '0')  %> </span></div>
+        <div style="margin-left:45px;">
         姓名:<span class="text-info" style="margin-left:10px;"><%= @prescri.patient_name %> </span>
         </div>
-        <div style="margin-left:40px;">
+        <div style="margin-left:45px;">
         年龄:<span class="text-info" style="margin-left:10px;"><%= @prescri.age %> </span>
         </div>
-        <div style="margin-left:40px;">
+		<div style="margin-left:45px;">
         性别:<span class="text-info" style="margin-left:10px;"><%= @prescri.gender %> </span>
         </div>
-        <div style="margin-left:40px;">
+        <div style="margin-left:124px; clear: left">
+		就诊时间:<span class="text-info" style="margin-left:10px;"><%=@prescri.created_at.strftime("%Y-%m-%d") %> </span>
+        </div>
+        <div style="margin-left:45px;">
         诊断:<span class="text-info" style="margin-left:10px;"><%= @prescri.diagnose %> </span>
         </div>
-        <div style="margin-left:40px;">
-        就诊时间:<span class="text-info" style="margin-left:10px;"><%=@prescri.created_at.strftime("%Y-%m-%d %H:%M:%S") %> </span>        </div>
+        
 </div>
 <% if @prescri.prescri_drugs.any? %>
-<div class="drug" style="margin-top: 80px;">
-  <div>R:</div>
-  <table class="table">
+<div class="drug" style="margin-top: 80px; width:70%">
+  <div style="margin-left:127px;">R:</div>
+  <table class="table" style="margin-left:113px;">
     <thead> 
       <th>药品名称</th>
       <th>药品规格</th>
@@ -38,10 +40,12 @@
     <% end %>
   </table>
   <% end %>
-        <div>医生签名:</div>
-        <div class="pull-right" style="margin-left:10px;">
-             药品费用:&#65509;&nbsp;<%= @prescri.prescri_drugs.sum("total_price") %>&nbsp;元
-        </div> 
+  <div class="sign">
+        <span style="margin-left:140px;">医生签名:</span>
+        <span class="pull-right total-price">
+             医药总费用:&#65509;&nbsp;<%= @prescri.prescri_drugs.sum("total_price") %>&nbsp;元
+        </span>
+  </div>		
 </div>
 <%= javascript_tag defer: 'defer' do -%>
     window.onload = window.print()

@@ -2,7 +2,7 @@
 
 <div class="prescri-info" style="margin-top: 30px;">
         <div>
-        编号:<span class="text-info" style="margin-left:10px;"><%= @prescri.created_at.to_time.to_i %> </span></div>
+        编号:<span class="text-info" style="margin-left:10px;"><%= @prescri.id.to_s.rjust(7, '0') %> </span></div>
         <div style="margin-left:40px;">
         姓名:<span class="text-info" style="margin-left:10px;"><%= @prescri.patient_name %> </span>
         </div>

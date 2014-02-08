@@ -3,3 +3,7 @@
 
 <legend class="text-success">新处方</legend>
 <%= render 'form' %>
+
+<%= javascript_tag defer: 'defer' do -%>
+    $('select').not('select[name="prescri[gender]"]').select2({width: 'resolve'});  
+<% end -%>

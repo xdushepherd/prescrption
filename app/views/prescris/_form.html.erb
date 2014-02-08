@@ -11,23 +11,23 @@
     </div>
   <% end %>
   <div class="field" style="margin-left: 60px;">
-    <%= f.label "患者姓名:" %>
+    <%= f.label "姓名:" %>
     <%= f.text_field :patient_name %>
   </div>
   <div class="field" style="margin-left: 60px;">
-    <%= f.label "患者性别:" %>
+    <%= f.label "性别:" %>
     <%= f.select :gender,['男','女'] %>
   </div>
   <div class="field" style="margin-left: 60px;">
-    <%= f.label "患者年龄:" %>
+    <%= f.label "年龄:" %>
     <%= f.text_field :info %>
   </div>
   <div class="field" style="margin-left: 60px;">
-    <%= f.label "临床诊断:" %>
+    <%= f.label "诊断:" %>
     <%= f.text_field :diagnose %>
   </div>
   <div class="field" style="margin-left: 60px;">
-    <%= f.label "就诊时间:" %>
+    <%= f.label "时间:" %>
     <%= f.text_field :created_at,value: @prescri.created_at || Time.now.strftime("%Y-%m-%d %H:%M:%S") %>
   </div>
   <legend class="text-success">药品</legend>
