@@ -1,9 +1,9 @@
 <tr>
   <td>
-  <%= f.collection_select :drug_id,Drug.all,:id,:name %>
+  <%= f.collection_select :drug_id,Drug.all,:id,:name,include_blank: true %>
   </td>
   <td><%= f.number_field :amount %></td>
-  <td><%= f.select :use_method,use_method %></td>
+  <td><%= f.select :use_method,use_method,include_blank: true %></td>
   <td><%= f.hidden_field :_destroy %>
       <%= f.hidden_field :id %>
   <%= link_to_function "删除药物", "remove_fields(this)",class: "btn btn-danger" %>

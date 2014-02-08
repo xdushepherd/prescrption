@@ -5,5 +5,11 @@
 <%= render 'form' %>
 
 <%= javascript_tag defer: 'defer' do -%>
-    $('select').not('select[name="prescri[gender]"]').select2({width: 'resolve'});  
+    $('select').not('select[name="prescri[gender]"]').select2({
+         width: 'resolve',
+         matcher: function(term, text) {  
+            var mod=text.toPinyin();  
+            return mod; 
+        }  
+     });  
 <% end -%>
