@@ -14,9 +14,15 @@ class Prescri < ActiveRecord::Base
              	                                drug_name: drug.name,
              	                                specifications: drug.specifications)
              if attribute[0]["id"].blank?
-               self.prescri_drugs.new(prescri_drug)
+               if attribute[0]["_destroy"] == "false"
+                 self.prescri_drugs.new(prescri_drug)
+               end
              else
-               self.prescri_drugs.find(prescri_drug["id"]).update(prescri_drug)
+               if attribute[0]["_destroy"] == "false"
+                  self.prescri_drugs.find(prescri_drug["id"]).update(prescri_drug)
+               else
+                  self.prescri_drugs.find(prescri_drug["id"]).destroy
+               end
              end
 		   end
 		end

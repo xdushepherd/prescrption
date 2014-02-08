@@ -18,7 +18,8 @@
 //= require turbolinks
 //= require_tree .
 function remove_fields(link) {
-        $(link).closest("input[type=hidden]").value = true;
+
+        $(link).siblings('input[id$="destroy"]').val(true);
         $(link).closest("tr").hide();
 }
 function add_fields(link, association, content) {
