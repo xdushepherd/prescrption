@@ -17,7 +17,6 @@ class Prescri < ActiveRecord::Base
                self.prescri_drugs.new(prescri_drug)
              else
                self.prescri_drugs.find(prescri_drug["id"]).update(prescri_drug)
-               binding.pry
              end
 		   end
 		end

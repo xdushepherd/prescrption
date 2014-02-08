@@ -42,7 +42,6 @@ class PrescrisController < ApplicationController
   # PATCH/PUT /prescris/1.json
   def update
     respond_to do |format|
-      binding.pry
       if @prescri.update(prescri_params)
         format.html { redirect_to @prescri, notice: 'Prescri was successfully updated.' }
         format.json { head :no_content }
