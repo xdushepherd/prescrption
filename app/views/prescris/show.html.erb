@@ -25,14 +25,18 @@
     <thead> 
       <th>药品名称</th>
       <th>药品规格</th>
+      <th>药品单价</th>
       <th>药品数量</th>
+      <th>药品总价</th>
       <th>用法用量</th>       
     </thead>
     <% @prescri.prescri_drugs.each do |p|%>
     <tr>
       <td><%= p.drug_name%></td>
       <td><%= p.specifications%></td>
+      <td><%= p.base_price %></td>
       <td><%= p.amount %></td>
+      <td><%= p.total_price %></td>
       <td><%= p.use_method %></td>
     </tr>
     <% end %>

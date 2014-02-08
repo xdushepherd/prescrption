@@ -9,4 +9,12 @@ module PrescrisHelper
         end
         link_to_function(name, "add_fields(this,'#{association}', '#{escape_javascript(fields)}')",class: "btn btn-success")
    end
+
+   def use_method
+     {
+       "静脉滴注 一天一次" => "静脉滴注 一天一次",
+       "肌肉注射一天一次" => "肌肉注射一天一次",
+       "肌肉注射一天二次" => "肌肉注射一天二次"
+     }
+   end
 end

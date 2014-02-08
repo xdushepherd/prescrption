@@ -28,3 +28,18 @@ function add_fields(link, association, content) {
   $(content.replace(regexp, new_id)).insertAfter('tbody tr:last-child');
   $('select').not('select[name="prescri[gender]"]').select2({ width: 'resolve' })
 }
+$(document).keydown(function(e)    
+    {    
+        switch(e.which)    
+        {     
+            case 37:    $('a.btn.btn-success').click();
+                        $('tr').last().children().first().children('div').children('input').focus(); 
+                        break;
+            case 39:    $(document.activeElement).parent().parent().siblings().last().children('a').click();
+                        $('tr:visible').last().children().first().children('div').children('input').focus();
+                        break;
+            case 38:    $('#prescri_patient_name').focus();
+                        break;
+
+        }    
+    });  
