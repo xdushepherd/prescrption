@@ -17,6 +17,7 @@ gem 'bootstrap-sass', '~> 3.1.0'
 gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
+gem 'rails3-jquery-autocomplete', git: 'https://github.com/francisd/rails3-jquery-autocomplete'
 gem 'jquery-rails'
 gem 'pry'
 gem "select2-rails"

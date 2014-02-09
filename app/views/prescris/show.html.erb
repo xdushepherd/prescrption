@@ -7,7 +7,7 @@
         姓名:<span class="text-info" style="margin-left:10px;"><%= @prescri.patient_name %> </span>
         </div>
         <div style="margin-left:40px;">
-        年龄:<span class="text-info" style="margin-left:10px;"><%= @prescri.age %> </span>
+        年龄:<span class="text-info" style="margin-left:10px;"><%= @prescri.info %> </span>
         </div>
         <div style="margin-left:40px;">
         性别:<span class="text-info" style="margin-left:10px;"><%= @prescri.gender %> </span>
@@ -44,7 +44,7 @@
   <% end %>
         <div>医生签名:</div>
         <div class="pull-right" style="margin-left:10px;">
-             药品费用:&#65509;&nbsp;<%= @prescri.prescri_drugs.sum("total_price") %>&nbsp;元
+             药品费用:&#65509;&nbsp;<%= @prescri.prescri_drugs.sum("total_price").round(1) %>&nbsp;元
         </div> 
 </div>
 <div style="margin-top: 20px;">

@@ -1,7 +1,7 @@
 class Prescri < ActiveRecord::Base
 	has_many :drugs,through: :prescri_drug
 	has_many :prescri_drugs,:dependent => :destroy,autosave: true
-	attr_accessible :prescri_drugs_attributes,:patient_name,:gender,:info,:diagnose, :created_at
+	attr_accessible :prescri_drugs_attributes,:patient_name,:gender,:info,:diagnose
 	accepts_nested_attributes_for :prescri_drugs,:reject_if => lambda { |a| a[:drug_id].blank? }, allow_destroy: true
 	def prescri_drugs_attributes=(attributes)
 		attributes.each do |attribute|
