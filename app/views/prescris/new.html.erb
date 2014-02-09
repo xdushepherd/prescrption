@@ -11,5 +11,15 @@
             console.log(term);
             return true;  
         }  
-     });  
+     });
+    $(function() {
+    var availableTags = [
+       "静脉滴注一天一次",
+       "肌肉注射一天一次",
+       "肌肉注射一天二次"
+    ];
+    $('input[id$="use_method"]').autocomplete({
+      source: availableTags
+    });
+  });    
 <% end -%>

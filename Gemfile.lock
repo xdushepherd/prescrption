@@ -6,6 +6,13 @@ GIT
       activerecord (>= 3.1, < 4.1)
       activesupport (>= 3.1, < 4.1)
 
+GIT
+  remote: https://github.com/francisd/rails3-jquery-autocomplete
+  revision: 9884a40f2bb1a8fa3ffab445e6d2c74c3ee99a0d
+  specs:
+    rails3-jquery-autocomplete (1.0.11)
+      rails (>= 3.0)
+
 GEM
   remote: http://ruby.taobao.org/
   specs:
@@ -56,6 +63,8 @@ GEM
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (4.1.1)
+      railties (>= 3.1.0)
     json (1.8.1)
     kaminari (0.15.1)
       actionpack (>= 3.0.0)
@@ -168,10 +177,12 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   jbuilder (~> 1.2)
   jquery-rails
+  jquery-ui-rails
   kaminari
   protected_attributes
   pry
   rails (= 4.0.2)
+  rails3-jquery-autocomplete!
   ransack
   roo
   sass-rails (~> 4.0.0)

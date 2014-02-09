@@ -12,9 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.all
+//= require autocomplete-rails
 //= require bootstrap
 //= require select2
-//= require jQuery.Hz2Py-min
 //= require select2_locale_zh-CN
 //= require turbolinks
 //= require_tree .
@@ -28,19 +29,29 @@ function add_fields(link, association, content) {
   regexp = new RegExp("new_" + association, "g");
   $(content.replace(regexp, new_id)).insertAfter('tbody tr:last-child');
   $('select').not('select[name="prescri[gender]"]').select2({ width: 'resolve' })
+  $(function() {
+    var availableTags = [
+       "静脉滴注一天一次",
+       "肌肉注射一天一次",
+       "肌肉注射一天二次"
+    ];
+    $('input[id$="use_method"]').autocomplete({
+      source: availableTags
+    });
+  });  
 }
 $(document).keydown(function(e)    
     {    
         switch(e.which)    
         {     
-            case 37:    $('a.btn.btn-success').click();
+            case 33:    $('a.btn.btn-success').click();
                         $('tr').last().children().first().children('div').children('input').focus(); 
                         break;
-            case 39:    $(document.activeElement).parent().parent().siblings().last().children('a').click();
+            case 34:    $(document.activeElement).parent().parent().siblings().last().children('a').click();
                         $('tr:visible').last().children().first().children('div').children('input').focus();
                         break;
-            case 38:    $('#prescri_patient_name').focus();
+            case 18:    $('#prescri_patient_name').focus();
                         break;
 
         }    
-    });  
+    });
