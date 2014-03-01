@@ -7,10 +7,6 @@
 <%= javascript_tag defer: 'defer' do -%>
     $('select').not('select[name="prescri[gender]"]').select2({
          width: 'resolve',
-         matcher: function(term, text) {
-            console.log(term);
-            return true;  
-        }  
      });
     $(function() {
     var availableTags = [

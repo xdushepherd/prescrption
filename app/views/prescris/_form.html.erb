@@ -30,6 +30,9 @@
     <%= f.label "时间:" %>
     <%= f.text_field :created_at,value: @prescri.created_at || Time.now.strftime("%Y-%m-%d %H:%M:%S") %>
   </div>
+  <div class="field" style="margin-left: 60px;">
+    总费用:<span style="margin-left: 20px;" id="total_price"></span>
+  </div>
   <legend class="text-success">药品</legend>
   <table class="table">
     <thead> 
